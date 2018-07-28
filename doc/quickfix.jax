@@ -452,8 +452,7 @@ QuickFixリストやロケーションリスト中のバッファに対してコ
 -           {not in Vi} {not available when compiled without the
 -           |+listcmds| feature}
 +           {not in Vi}
-			{Vi にはない} {|+listcmds| 機能なしでコンパイルされた
-			場合は使用できない}
+			{Vi にはない}
 			|:bufdo|、|:tabdo|、|:argdo|、|:windo|、|:ldo|、
 			|:cfdo|、|:lfdo| も参照。
 
@@ -469,8 +468,7 @@ QuickFixリストやロケーションリスト中のバッファに対してコ
 -           {not in Vi} {not available when compiled without the
 -           |+listcmds| feature}
 +           {not in Vi}
-			{Vi にはない} {|+listcmds| 機能なしでコンパイルされた
-			場合は使用できない}
+			{Vi にはない}
 
 							*:ldo*
 :ld[o][!] {cmd}		カレントウィンドウのロケーションリスト中の有効な各項
@@ -486,8 +484,7 @@ QuickFixリストやロケーションリスト中のバッファに対してコ
 -           {not in Vi} {not available when compiled without the
 -           |+listcmds| feature}
 +           {not in Vi}
-			{Vi にはない} {|+listcmds| 機能なしでコンパイルされた
-			場合は使用できない}
+			{Vi にはない}
 
 							*:lfdo*
 :lfdo[!] {cmd}		カレントウィンドウのロケーションリスト中の各ファイル
@@ -502,8 +499,7 @@ QuickFixリストやロケーションリスト中のバッファに対してコ
 -           {not in Vi} {not available when compiled without the
 -           |+listcmds| feature}
 +           {not in Vi}
-			{Vi にはない} {|+listcmds| 機能なしでコンパイルされた
-			場合は使用できない}
+			{Vi にはない}
 
 =============================================================================
 2. エラーウィンドウ					*quickfix-window*
