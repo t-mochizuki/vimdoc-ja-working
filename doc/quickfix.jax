@@ -404,6 +404,16 @@ Examples: >
 	echo getloclist(2, {'id' : qfid, 'context' : 1})
 <
 							*quickfix-parse*
+あなたは|getqflist()|関数を使用してQuickFixリストを作成または変更することなし
+に'errorformat'を使用しているlinesのリストの値をパースできる。例: >
+	echo getqflist({'lines' : ["F1:10:Line10", "F2:20:Line20"]})
+	echo getqflist({'lines' : systemlist('grep -Hn quickfix *')})
+<
+これは'items'キーの値がlinesをパースしたQuickFix項目のリストの値から成る辞書を
+返す。下記はどのように'errorformat'オプションを変更することなしにlinesをパース
+するためにカスタム'errorformat'を使うべきかを示す。>
+	echo getqflist({'efm' : '%f#%l#%m', 'lines' : ['F1#10#Line']})
+<
 You can parse a list of lines using 'errorformat' without creating or
 modifying a quickfix list using the |getqflist()| function. Examples: >
 	echo getqflist({'lines' : ["F1:10:Line10", "F2:20:Line20"]})
