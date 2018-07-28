@@ -371,6 +371,22 @@ using the |getqflist()| and |getloclist()| functions respectively. Examples: >
 	echo getloclist(5, {'size' : 1})
 <
 							*quickfix-context*
+Vimの型はコンテキストのようにQuickFixリストまたはロケーションリストを結びつけ
+て考えられる。|setqflist()|関数と|setloclist()|関数はそれぞれQuickFixリストと
+ロケーションリストをコンテキストと結びつけて考えるために使われる。
+|getqflist()|関数と|getloclist()|関数はそれぞれQuickFixリストとロケーションリ
+ストのコンテキストを取り出すために使われる。これは複数のQuickFix/ロケーション
+リストを取り扱うVimプラグインにとって便利である。
+例: >
+
+	let somectx = {'name' : 'Vim', 'type' : 'Editor'}
+	call setqflist([], 'a', {'context' : somectx})
+	echo getqflist({'context' : 1})
+
+	let newctx = ['red', 'green', 'blue']
+	call setloclist(2, [], 'a', {'id' : qfid, 'context' : newctx})
+	echo getloclist(2, {'id' : qfid, 'context' : 1})
+<
 Any Vim type can be associated as a context with a quickfix or location list.
 The |setqflist()| and the |setloclist()| functions can be used to associate a
 context with a quickfix and a location list respectively. The |getqflist()|
