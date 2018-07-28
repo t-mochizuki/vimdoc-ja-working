@@ -339,6 +339,16 @@ QuickFixコマンド (':make', ':grep' など) を実行する前後に2つの�
 代わりに 'makeencoding' オプションを使うこともできる。
 
 							*quickfix-title*
+すべてのQuickFixリストとロケーションリストはタイトルを持つ。デフォルトではタイ
+トルはそのリストを作成したコマンドに設定される。|getqflist()|関数と
+|getloclist()|関数はそれぞれQuickFixリストとロケーションリストのタイトルを取得
+するために使われる。|setqflist()|関数と|setloclist()|関数はそれぞれQuickFixリ
+ストとロケーションリストのタイトルを変更するために使われる。例: >
+	call setqflist([], 'a', {'title' : 'Cmd output'})
+	echo getqflist({'title' : 1})
+	call setloclist(3, [], 'a', {'title' : 'Cmd output'})
+	echo getloclist(3, {'title' : 1})
+<
 Every quickfix and location list has a title. By default the title is set to
 the command that created the list. The |getqflist()| and |getloclist()|
 functions can be used to get the title of a quickfix and a location list
