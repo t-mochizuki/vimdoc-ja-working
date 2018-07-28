@@ -898,6 +898,14 @@ using these functions are below:
 ングしているときに特に便利である。もっと最近のエラーリストを残しておきたい場合
 は初めに ":cnewer 99" を行うこと。
 
+QuickFixリストのスタックとロケーションリストのスタックの中のリスト番号を取得す
+るために、特別な値'$'に設定したリスト番号があればそれぞれ|getqflist()|関数と
+|getloclist()|関数を使用できる。例: >
+	echo getqflist({'nr' : '$'}).nr
+	echo getloclist(3, {'nr' : '$'}).nr
+そのスタックの中の現在のリスト番号を取得するためには: >
+	echo getqflist({'nr' : 0}).nr
+<
 To get the number of lists in the quickfix and location list stack, you can
 use the |getqflist()| and |getloclist()| functions respectively with the list
 number set to the special value '$'. Examples: >
