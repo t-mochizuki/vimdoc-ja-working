@@ -72,6 +72,12 @@ stack.
 ケーションリストは破棄される。
 
 						*quickfix-changedtick*
+全てのQuickFixリストとロケーションリストはそのリストに作られた変更の総数を追跡
+する読み込み専用のchangedtick変数を持つ。QuickFixリストが変更されるたびに、こ
+の総数は増加される。そのリストが変更されたときにだけ、これはアクションを行うた
+めに使われる。getqflist()関数とgetloclist()関数はchangedtickの現在の値を問うた
+めに使われる。あなたはchangedtick変数を変えられない。
+
 Every quickfix and location list has a read-only changedtick variable that
 tracks the total number of changes made to the list.  Every time the quickfix
 list is modified, this count is incremented. This can be used to perform an
