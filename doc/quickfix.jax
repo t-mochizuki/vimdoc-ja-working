@@ -360,6 +360,11 @@ modify the title of a quickfix and location list respectively. Examples: >
 	echo getloclist(3, {'title' : 1})
 <
 							*quickfix-size*
+あなたはQuickFixリストとロケーションリストの中の項目の数をそれぞれ
+|getqflist()|関数と|getloclist()|関数を使用して取得できる。例: >
+	echo getqflist({'size' : 1})
+	echo getloclist(5, {'size' : 1})
+<
 You can get the number of entries (size) in a quickfix and a location list
 using the |getqflist()| and |getloclist()| functions respectively. Examples: >
 	echo getqflist({'size' : 1})
