@@ -762,6 +762,53 @@ using these functions are below:
     :echo getloclist(3, {'winid' : 0}).winid
 <
 							*setqflist-examples*
+setqflist()関数とsetloclist()関数はそれぞれQuickFixリストとロケーションリスト
+のさまざまな属性を設定するために使われる。これらの関数を使用するためのいくつか
+の例は以下です:
+>
+    " titleとcontextを持つ空のQuickFixリストを作成する
+    :let t = 'Search results'
+    :let c = {'cmd' : 'grep'}
+    :call setqflist([], ' ', {'title' : t, 'context' : c})
+
+    " 現在のQuickFixリストのtitleを設定する
+    :call setqflist([], 'a', {'title' : 'Mytitle'})
+
+    " 識別子により指定されたQuickFixリストのcontextを設定する
+    :call setqflist([], 'a', {'id' : qfid, 'context' : {'val' : 100}})
+
+    " コマンド出力から新しいQuickFixリストを作成する
+    :call setqflist([], ' ', {'lines' : systemlist('grep -Hn main *.c')})
+
+    " カスタムefmを使用してテキストをパースして特定のQuickFixリストに追加する
+    :call setqflist([], 'a', {'id' : qfid,
+		\ 'lines' : ["a.c#10#L10", "b.c#20#L20"], 'efm':'%f#%l#%m'})
+
+    " 識別子により指定されたQuickFixリストにitemsを追加する
+    :let newItems = [{'filename' : 'a.txt', 'lnum' : 10, 'text' : "Apple"},
+		    \ {'filename' : 'b.txt', 'lnum' : 20, 'text' : "Orange"}]
+    :call setqflist([], 'a', {'id' : qfid, 'items' : newItems})
+
+    " 識別子により指定されたQuickFixリストを空にする
+    :call setqflist([], 'r', {'id' : qfid, 'items' : []})
+
+    " スタックの中の全てのQuickFixリストを開放する
+    :call setqflist([], 'f')
+
+    " 4番目のQuickFixリストのtitleを設定する
+    :call setqflist([], 'a', {'nr' : 4, 'title' : 'SomeTitle'})
+
+    " スタックの最後に新しいQuickFixリストを作成する
+    :call setqflist([], ' ', {'nr' : '$',
+			\ 'lines' : systemlist('grep -Hn class *.java')})
+
+    " コマンド出力から新しいロケーションリストを作成する
+    :call setloclist(0, [], ' ', {'lines' : systemlist('grep -Hn main *.c')})
+
+    " replace the location list entries for the third window
+    " 3番目のウィンドウのロケーションリスト項目を置き換える
+    :call setloclist(3, [], 'r', {'items' : newItems})
+<
 The setqflist() and setloclist() functions can be used to set the various
 attributes of a quickfix and location list respectively. Some examples for
 using these functions are below:
