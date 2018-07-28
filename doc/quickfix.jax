@@ -47,6 +47,11 @@ Vim の中でコマンドを実行し結果を得る方法の一つに|:make|コ
 'errorformat' をセットする (下の|errorformat|を参照)。
 
 							*quickfix-ID*
+各QuickFixリストはQuickFix IDと呼ばれる一意な識別子を持ち、この番号はVimセッ
+ションの中で変わらない。getqflist()関数はリストに割り当てられた識別子を得るた
+めに使われる。10個以上のリストがQuickFixスタックに追加されるときはいつでも、変
+わるかもしれないQuickFixリスト番号もある。
+
 Each quickfix list has a unique identifier called the quickfix ID and this
 number will not change within a Vim session. The getqflist() function can be
 used to get the identifier assigned to a list. There is also a quickfix list
