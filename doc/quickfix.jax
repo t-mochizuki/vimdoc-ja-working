@@ -635,6 +635,12 @@ Note: QuickFixウィンドウ内で変更を加えてもエラーのリストに
 ションリストが関連づけられる。
 
 							*quickfix-window-ID*
+あなたはQuickFixウィンドウとロケーションリストウィンドウのウィンドウIDを取得す
+るためにそれぞれ|getqflist()|関数と|getloclist()|関数を使用できる(もしあれば)。
+例: >
+	echo getqflist({'winid' : 1}).winid
+	echo getloclist(2, {'winid' : 1}).winid
+<
 You can use the |getqflist()| and |getloclist()| functions to obtain the
 window ID of the quickfix window and location list window respectively (if
 present).  Examples: >
