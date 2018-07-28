@@ -1392,6 +1392,7 @@ Note: デフォルトでは大文字と小文字の違いは無視される。�
 基本要素
 
 	%f		ファイル名 (文字列を検索)
+	%o		モジュール名 (文字列を検索)
 +   %o      module name (finds a string)
 	%l		行番号 (数字を検索)
 	%c		桁番号 (エラーの桁を表す数字 (<Tab>1個は1桁と数える))
@@ -1437,6 +1438,9 @@ nomagic" とされる。"%s" はエラー出力中の行番号がない行を探
 きる。シェルコマンド "grep" の出力のように。
 パターンがある場合は行番号は使われない。
 
+"%o"はQuickfix項目の中のモジュール名を指定する。もし指定があればそれがファイル
+名の代わりにQuickfixエラーウィンドウの中で使われる。モジュール名は結果を表示す
+るためだけに使われ、ファイル名はそのファイルにジャンプするときに使われる。
 The "%o" conversion specifies the module name in quickfix entry.  If present
 it will be used in quickfix error window instead of the filename.  The module
 name is used only for displaying purposes, the file name is used when jumping
