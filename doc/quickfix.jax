@@ -519,7 +519,9 @@ QuickFixリストやロケーションリスト中のバッファに対してコ
 			ウィンドウは w:quickfix_title 変数を持っている。この変
 			数はクイックフィックスリストを生成したコマンドを示して
 			いる。変数の値は 'statusline' が適切に調整されていれば
-			ステータスラインに表示される。
+			ステータスラインに表示される。このバッファがQuickFixコ
+			マンドまたは関数により変更されるたびごとに、
+			|b:changedtick|変数は増加される。
 -           properly.
 +           properly. Whenever this buffer is modified by a
 +           quickfix command or function, the |b:changedtick|
