@@ -648,6 +648,63 @@ present).  Examples: >
 	echo getloclist(2, {'winid' : 1}).winid
 <
 							*getqflist-examples*
+getqflist()関数とgetloclist()関数はそれぞれQuickFixリストとロケーションリスト
+のさまざまな属性を取得するために使われる。これらの関数を使用するためのいくつか
+の例は以下です:
+>
+    " 現在のQuickFixリストのタイトルを取得する
+    :echo getqflist({'title' : 0}).title
+
+    " 現在のQuickFixリストの識別子を取得する
+    :let qfid = getqflist({'id' : 0}).id
+
+    " スタックの中の4番目のQuickFixリストの識別子を取得する
+    :let qfid = getqflist({'nr' : 4, 'id' : 0}).id
+
+    " 特定の識別子を持つQuickFixリストが存在するかどうかを検査する
+    :if getqflist({'id' : qfid}).id == qfid
+
+    " スタックの中の現在のQuickFixリストのインデックスを取得する
+    :let qfnum = getqflist({'nr' : 0}).nr
+
+    " 識別子により指定されたQuickFixリストのitemsを取得する
+    :echo getqflist({'id' : qfid, 'items' : 0}).items
+
+    " idにより指定されたQuickFixリストの中の項目の数を取得する
+    :echo getqflist({'id' : qfid, 'size' : 0}).size
+
+    " スタックの中の3番目のQuickFixリストのcontextを取得する
+    :echo getqflist({'nr' : 3, 'context' : 0}).context
+
+    " スタックの中のQuickFixリストの数を取得する
+    :echo getqflist({'nr' : '$'}).nr
+
+    " 現在のQuickFixリストが変更された回数を取得する
+    :echo getqflist({'changedtick' : 0}).changedtick
+
+    " 識別子により指定されたQuickFixリストの中の現在の項目を取得する
+    :echo getqflist({'id' : qfid, 'idx' : 0}).idx
+
+    " 識別子を使用して全てのQuickFixリスト属性を取得する
+    :echo getqflist({'id' : qfid, 'all' : 0})
+
+    " linesのリストの値からテキストをパースしてQuickFixリストを返す
+    :let myList = ["a.java:10:L10", "b.java:20:L20"]
+    :echo getqflist({'lines' : myList}).items
+
+    " カスタム'efm'を使用してテキストをパースしてQuickFixリストを返す
+    :echo getqflist({'lines' : ['a.c#10#Line 10'], 'efm':'%f#%l#%m'}).items
+
+    " get the quickfix list window id
+    " QuickFixリストのウィンドウIDを取得する
+    :echo getqflist({'winid' : 0}).winid
+
+    " 現在のロケーションリストのcontextを取得する
+    :echo getloclist(0, {'context' : 0}).context
+
+    " 3番目のウィンドウのロケーションリストのウィンドウIDを取得する
+    :echo getloclist(3, {'winid' : 0}).winid
+<
 The getqflist() and getloclist() functions can be used to get the various
 attributes of a quickfix and location list respectively. Some examples for
 using these functions are below:
