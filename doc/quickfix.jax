@@ -408,7 +408,6 @@ Examples: >
 に'errorformat'を使用しているlinesのリストの値をパースできる。例: >
 	echo getqflist({'lines' : ["F1:10:Line10", "F2:20:Line20"]})
 	echo getqflist({'lines' : systemlist('grep -Hn quickfix *')})
-<
 これは'items'キーの値がlinesをパースしたQuickFix項目のリストの値から成る辞書を
 返す。下記はどのように'errorformat'オプションを変更することなしにlinesをパース
 するためにカスタム'errorformat'を使うべきかを示す。>
@@ -577,7 +576,11 @@ QuickFixリストやロケーションリスト中のバッファに対してコ
 +You can use ":.cc" to jump to the error under the cursor.
 
 QuickFixウィンドウには各行に１個ずつエラーが表示される。その行数はエラー番号に
-等しい。":.cc" でカーソル下のエラーに移動できる。<Enter>キーを押すのと行をダブ
+等しい。現在の項目はQuickFixLineハイライティングでハイライトされる。あなたはそ
+れをあなたの関連付けているものに変更できる、例: >
+   :hi QuickFixLine ctermbg=Yellow guibg=Yellow
+
+":.cc" でカーソル下のエラーに移動できる。<Enter>キーを押すのと行をダブ
 ルクリックするのは同じ効果がある。そのエラーを含むファイルがQuickFixウィンドウ
 の上に開かれる。そのファイルがすでにウィンドウに開かれていたらそのウィンドウが
 アクティブになる。そのウィンドウにあるバッファが変更されていて、そのエラーが別
