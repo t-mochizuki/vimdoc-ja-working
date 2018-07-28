@@ -319,9 +319,8 @@ change the changedtick variable.
 +quickfix command (':make', ':grep' and so on) is executed. See
 +|QuickFixCmdPre| and |QuickFixCmdPost| for details.
 
-Vimが|+autocmd|機能つきでビルドされている場合、QuickFixコマンド (':make',
-':grep' など) を実行する前後に2つの自動コマンドが利用できる。詳しくは
-|QuickFixCmdPre|と|QuickFixCmdPost|を参照。
+QuickFixコマンド (':make', ':grep' など) を実行する前後に2つの自動コマンドが利
+用できる。詳しくは|QuickFixCmdPre|と|QuickFixCmdPost|を参照。
 
 						*QuickFixCmdPost-example*
 'encoding' とロケールが異なる場合、コンパイラのエラーメッセージと Vim 内部のエ
